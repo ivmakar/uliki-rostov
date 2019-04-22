@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_graph"
+            app:startDestination="@id/mainFragment">
+
+    <fragment android:id="@+id/mainFragment" android:name="ru.example.ivan.ulikirostov.MainFragment"
+              android:label="MainFragment">
+        <action android:id="@+id/action_mainFragment_to_itemInfoFragment" app:destination="@id/itemInfoFragment"/>
+        <action android:id="@+id/action_mainFragment_to_resultFragment" app:destination="@id/resultFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/itemInfoFragment" android:name="ru.example.ivan.ulikirostov.ItemInfoFragment"
+              android:label="ItemInfoFragment"/>
+
+    <fragment android:id="@+id/resultFragment" android:name="ru.example.ivan.ulikirostov.ResultFragment"
+              android:label="ResultFragment">
+    </fragment>
+
+</navigation>

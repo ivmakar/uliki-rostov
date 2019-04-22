@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:id="@+id/layout">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="viewModel"
+                type="ru.example.ivan.ulikirostov.MainViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            tools:context="ru.example.ivan.ulikirostov.ResultFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/main_rv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView7">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+        <TextView
+                android:text="Итог"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:id="@+id/textView7"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/clear_button"/>
+        <TextView
+                android:text="@{Integer.toString(viewModel.sumPrice)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:id="@+id/textView8"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toTopOf="@+id/textView7"
+                app:layout_constraintBottom_toBottomOf="@+id/textView7"/>
+        <Button
+                android:text="Очистить"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/clear_button"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:drawableStart="@android:drawable/ic_menu_delete"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/button"
+                android:layout_marginEnd="8dp"/>
+        <Button
+                android:text="Поделиться"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/button"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:drawableStart="@android:drawable/ic_menu_share"
+                app:layout_constraintStart_toEndOf="@+id/clear_button"
+                android:layout_marginStart="8dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
