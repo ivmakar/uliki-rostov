@@ -35,6 +35,6 @@ class ItemRepository {
         arrayList.add(Item(25, "Д1М2-10", "Улей Дадана однокорпусный с 2 магазинами 10 рамок (Комплект Д1М2-10)", 0, 3850))
         arrayList.add(Item(26, "Д1М1-10", "Улей Дадана однокорпусный с магазином 10 рамок (Комплект Д1М1-10)", 0, 2350))
 
-        return Observable.just(arrayList)
+        return Observable.just(arrayList).delay(2, TimeUnit.SECONDS)
     }
 }
