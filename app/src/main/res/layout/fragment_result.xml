@@ -32,20 +32,20 @@
                 android:text="Итог"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:id="@+id/textView7"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/clear_button"/>
+                app:layout_constraintBottom_toTopOf="@+id/clear_button" android:textStyle="bold"/>
         <TextView
                 android:text="@{Integer.toString(viewModel.sumPrice)}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:id="@+id/textView8"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
                 app:layout_constraintTop_toTopOf="@+id/textView7"
-                app:layout_constraintBottom_toBottomOf="@+id/textView7"/>
+                app:layout_constraintBottom_toBottomOf="@+id/textView7" android:textStyle="bold"/>
         <Button
                 android:text="Очистить"
                 android:layout_width="0dp"
