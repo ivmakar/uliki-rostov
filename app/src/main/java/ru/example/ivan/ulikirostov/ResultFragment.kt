@@ -61,8 +61,8 @@ class ResultFragment : Fragment(), ResultRecyclerViewAdapter.OnItemClickListener
         binding.mainRv.layoutManager = LinearLayoutManager(activity)
         binding.mainRv.adapter = resultRecyclerViewAdapter
 
-        var floatingActionButton = view.findViewById<FloatingActionButton>(R.id.res_fab)
-        floatingActionButton.setOnClickListener {
+        var shareButton = view.findViewById<Button>(R.id.button)
+        shareButton.setOnClickListener {
             var shareText = viewModel?.shareData()
             val shareIntent = Intent().apply {
                 action = Intent.ACTION_SEND
