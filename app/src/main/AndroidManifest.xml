@@ -9,10 +9,7 @@
             android:roundIcon="@drawable/logo_small"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity
-                android:name=".MainActivity"
-                android:label="@string/app_name"
-                android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name="ru.example.ivan.ulikirostov.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

@@ -1,10 +1,11 @@
 package ru.example.ivan.ulikirostov
 
+import android.content.SharedPreferences
 import androidx.databinding.ObservableBoolean
+import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.navigation.fragment.NavHostFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
@@ -12,10 +13,18 @@ import io.reactivex.schedulers.Schedulers
 
 class MainViewModel : ViewModel() {
 
+    val APP_PREF = "settings"
+    val APP_PREF_TOP_TEXT = "top_text"
+    val APP_PREF_BOTTOM_TEXT = "bottom_text"
+
     var items = MutableLiveData<ArrayList<Item>>()
     var isLoading = ObservableBoolean()
     var sumPrice = ObservableInt()
     var selrctedItems = ArrayList<Item>()
+    var bottomText = ObservableField<String>()
+    var topText = ObservableField<String>()
+
+    lateinit var sp: SharedPreferences
 
     private var compositeDisposable = CompositeDisposable()
     private var itemRepository = ItemRepository()
@@ -66,6 +75,8 @@ class MainViewModel : ViewModel() {
 
     fun shareData(): String {
         var res = StringBuilder()
+        res.append(topText)
+            .append("\n\n")
         for (i in selrctedItems){
             res.append(i.name)
                 .append("\t\t")
@@ -78,7 +89,8 @@ class MainViewModel : ViewModel() {
         }
         res.append("\nИтог\t\t\t\t")
             .append(sumPrice.get())
-            .append("\n\nuliki-rostov.ru\n")
+            .append("\n\n")
+            .append(bottomText)
 
         return res.toString()
     }

@@ -17,4 +17,10 @@
               android:label="ResultFragment">
     </fragment>
 
+    <fragment android:id="@+id/infoFragment" android:name="ru.example.ivan.ulikirostov.InfoFragment"
+              android:label="InfoFragment">
+    </fragment>
+    <fragment android:id="@+id/settingsFragment" android:name="ru.example.ivan.ulikirostov.SettingsFragment"
+              android:label="SettingsFragment"/>
+
 </navigation>

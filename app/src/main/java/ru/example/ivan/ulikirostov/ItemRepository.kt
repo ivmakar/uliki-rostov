@@ -1,7 +1,6 @@
 package ru.example.ivan.ulikirostov
 
 import io.reactivex.Observable
-import io.reactivex.disposables.Disposable
 import java.util.concurrent.TimeUnit
 
 class ItemRepository {
@@ -51,6 +50,6 @@ class ItemRepository {
         arrayList.add(Item(41, "Корпус Дадан 12", "Корпус Дадан 12 рамок", 0, 750))
 
 
-        return Observable.just(arrayList)
+        return Observable.just(arrayList).delay(2, TimeUnit.SECONDS)
     }
 }
