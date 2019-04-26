@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.NavHostFragment
 import ru.example.ivan.ulikirostov.databinding.FragmentSettingsBinding
 
 
@@ -46,6 +47,7 @@ class SettingsFragment : Fragment() {
             editor.putString(viewModel.APP_PREF_BOTTOM_TEXT, viewModel.bottomText.get())
             editor.putString(viewModel.APP_PREF_TOP_TEXT, viewModel.topText.get())
             editor.apply()
+            NavHostFragment.findNavController(this).popBackStack()
         }
 
         return view

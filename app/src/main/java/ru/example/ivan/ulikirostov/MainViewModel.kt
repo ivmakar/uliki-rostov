@@ -75,7 +75,7 @@ class MainViewModel : ViewModel() {
 
     fun shareData(): String {
         var res = StringBuilder()
-        res.append(topText)
+        res.append(topText.get())
             .append("\n\n")
         for (i in selrctedItems){
             res.append(i.name)
@@ -90,7 +90,7 @@ class MainViewModel : ViewModel() {
         res.append("\nИтог\t\t\t\t")
             .append(sumPrice.get())
             .append("\n\n")
-            .append(bottomText)
+            .append(bottomText.get())
 
         return res.toString()
     }

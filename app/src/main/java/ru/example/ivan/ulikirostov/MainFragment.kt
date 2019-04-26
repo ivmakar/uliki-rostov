@@ -54,7 +54,7 @@ class MainFragment : Fragment(), MainRecyclerViewAdapter.OnItemClickListener {
 
         var floatingActionButton = view.findViewById<FloatingActionButton>(R.id.main_fab)
         floatingActionButton.setOnClickListener {
-            NavHostFragment.findNavController(this).navigate(R.id.action_mainFragment_to_resultFragment)
+            NavHostFragment.findNavController(this).navigate(R.id.resultFragment)
         }
 
         return view
@@ -64,7 +64,7 @@ class MainFragment : Fragment(), MainRecyclerViewAdapter.OnItemClickListener {
         val viewModel = activity?.let { it -> ViewModelProviders.of(it).get(MainViewModel::class.java) }
         var bundle = Bundle()
         bundle.putSerializable("item", viewModel?.getItemByPosition(position))
-        NavHostFragment.findNavController(this).navigate(R.id.action_mainFragment_to_itemInfoFragment, bundle)
+        NavHostFragment.findNavController(this).navigate(R.id.itemInfoFragment, bundle)
     }
 
 

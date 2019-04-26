@@ -72,13 +72,6 @@ class ResultFragment : Fragment(), ResultRecyclerViewAdapter.OnItemClickListener
             startActivity(shareIntent)
         }
 
-
-        var clearButton = view.findViewById<Button>(R.id.clear_button)
-        clearButton.setOnClickListener {
-            viewModel?.clearAll()
-            NavHostFragment.findNavController(this).popBackStack()
-        }
-
         return view
     }
 

@@ -5,21 +5,20 @@
     <item android:id="@+id/action_clear"
           android:title="@string/action_clear"
           android:orderInCategory="100"
-          app:showAsAction="collapseActionView"
-          android:icon="@android:drawable/ic_menu_delete"/>
+          app:showAsAction="always"/>
     <item android:id="@+id/action_share"
           android:title="@string/action_share"
           android:orderInCategory="100"
-          app:showAsAction="collapseActionView"
+          app:showAsAction="never"
           android:icon="@android:drawable/ic_menu_share"/>
     <item android:id="@+id/action_details"
           android:title="@string/action_details"
           android:orderInCategory="100"
-          app:showAsAction="collapseActionView"
+          app:showAsAction="never"
           android:icon="@android:drawable/ic_menu_info_details"/>
     <item android:id="@+id/action_settings"
           android:title="@string/action_settings"
           android:orderInCategory="100"
-          app:showAsAction="collapseActionView"
+          app:showAsAction="never"
           android:icon="@android:drawable/ic_menu_preferences"/>
 </menu>

@@ -2,6 +2,7 @@ package ru.example.ivan.ulikirostov
 
 import android.content.Context
 import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -14,8 +15,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar?.setIcon(R.drawable.logo_small)
-
+/*
+        supportActionBar?.setDisplayUseLogoEnabled(true)
+        supportActionBar?.setLogo(R.drawable.logo_small)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+*/
         val viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         viewModel.sp = getSharedPreferences(viewModel.APP_PREF, Context.MODE_PRIVATE)
 
@@ -37,27 +41,24 @@ class MainActivity : AppCompatActivity() {
         when (item!!.itemId){
             R.id.action_clear -> {
                 viewModel.clearAll()
-                Navigation.findNavController(this, R.id.fr_container).popBackStack()
-                true
+                if (!((Navigation.findNavController(this, R.id.fr_container).currentDestination?.id ?: 0) == R.id.mainFragment))
+                    Navigation.findNavController(this, R.id.fr_container).popBackStack()
             }
             R.id.action_details -> {
                 Navigation.findNavController(this, R.id.fr_container).navigate(R.id.infoFragment)
-                true
             }
             R.id.action_share -> {
                 viewModel.calculatePrice()
-                var shareText = viewModel?.shareData()
+                var shareText = viewModel.shareData()
                 val shareIntent = Intent().apply {
                     action = Intent.ACTION_SEND
                     putExtra(Intent.EXTRA_TEXT, shareText)
                     type = "text/plain"
                 }
                 startActivity(shareIntent)
-                true
             }
             R.id.action_settings -> {
                 Navigation.findNavController(this, R.id.fr_container).navigate(R.id.settingsFragment)
-                true
             }
         }
         return super.onOptionsItemSelected(item)

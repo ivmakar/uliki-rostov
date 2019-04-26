@@ -50,6 +50,6 @@ class ItemRepository {
         arrayList.add(Item(41, "Корпус Дадан 12", "Корпус Дадан 12 рамок", 0, 750))
 
 
-        return Observable.just(arrayList).delay(2, TimeUnit.SECONDS)
+        return Observable.just(arrayList)
     }
 }
